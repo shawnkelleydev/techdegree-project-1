@@ -1,10 +1,4 @@
-//arr of ob - "quotes"
-// ≥ 5 quotes
-// keys: quote/source, ≥1 citation, ≥1 year, ≥1 other
-//getRandomQuote()
-//printQuote(getRandomQuote()) - match layout and style of ex
-//auto refresh
-//random color each ref
+//quote object array
 
 const quotes = [
   {
@@ -48,11 +42,13 @@ const quotes = [
   },
 ];
 
+//generates random number & returns a quote object
 function getRandomQuote() {
   let n = Math.floor(Math.random() * quotes.length);
   return quotes[n];
 }
 
+//constructs a random rgb code
 function getRandomColor() {
   let color = "rgb(";
   for (let i = 1; i < 4; i++) {
@@ -67,6 +63,7 @@ function getRandomColor() {
   return color;
 }
 
+//generates what will be seen on the page
 function printQuote() {
   let q = getRandomQuote();
   let color = getRandomColor();
@@ -98,8 +95,10 @@ function printQuote() {
   document.body.style.backgroundColor = color;
 }
 
+//event listener, provided
 document
   .getElementById("load-quote")
   .addEventListener("click", printQuote, false);
 
+//refreshes page every 7 seconds.
 setInterval(printQuote, 7000);
