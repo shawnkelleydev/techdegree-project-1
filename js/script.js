@@ -42,7 +42,7 @@ const quotes = [
   },
 ];
 
-//generates random number & returns a quote object
+//returns random quote object
 function getRandomQuote() {
   let n = Math.floor(Math.random() * quotes.length);
   return quotes[n];
