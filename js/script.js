@@ -102,4 +102,4 @@ document
   .getElementById("load-quote")
   .addEventListener("click", printQuote, false);
 
-setInterval(printQuote, 5000);
+setInterval(printQuote, 7000);
