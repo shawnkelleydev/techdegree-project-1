@@ -52,7 +52,7 @@ function getRandomQuote() {
 function getRandomColor() {
   let color = "rgb(";
   for (let i = 1; i < 4; i++) {
-    let n = Math.floor(Math.random() * 255);
+    let n = Math.floor(Math.random() * 256);
     if (i < 3) {
       color += n + ",";
     } else {
@@ -65,31 +65,31 @@ function getRandomColor() {
 
 //generates what will be seen on the page
 function printQuote() {
-  let q = getRandomQuote();
+  let quote = getRandomQuote();
   let color = getRandomColor();
   let quotebox = document.getElementById("quote-box");
   let quoteline = quotebox.children[0];
   let sourceline = document.getElementsByClassName("source")[0];
 
-  quoteline.innerText = q.quote;
+  quoteline.innerText = quote.quote;
   sourceline.innerHTML = `
-  ${q.source}
+  ${quote.source}
   `;
 
-  if (q.citation !== "") {
+  if (quote.citation !== "") {
     sourceline.insertAdjacentHTML(
       "beforeend",
-      `<span class="citation">${q.citation}</span>`
+      `<span class="citation">${quote.citation}</span>`
     );
   }
-  if (q.year !== "") {
+  if (quote.year !== "") {
     sourceline.insertAdjacentHTML(
       "beforeend",
-      `<span class="year">${q.year}</span>`
+      `<span class="year">${quote.year}</span>`
     );
   }
-  if (q.age !== "") {
-    sourceline.insertAdjacentHTML("beforeend", `, at age ${q.age}`);
+  if (quote.age !== "") {
+    sourceline.insertAdjacentHTML("beforeend", `, at age ${quote.age}`);
   }
 
   document.body.style.backgroundColor = color;
